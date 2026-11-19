@@ -1,5 +1,9 @@
 # Gujarati numbers in Sarvam TTS: findings and a fix
 
+**Sinhal Joshi** · [sinhalz4772@gmail.com](mailto:sinhalz4772@gmail.com) ·
+[GitHub](https://github.com/Zephyr4772) · [Hugging Face](https://huggingface.co/sinhal) ·
+[LinkedIn](https://www.linkedin.com/in/sinhaljjoshi)
+
 *Independent evaluation by a native Gujarati speaker, November 2026.
 Code, test set and results: [github.com/Zephyr4772/gujnorm](https://github.com/Zephyr4772/gujnorm) ·
 before/after audio: [github.com/Zephyr4772/gujnorm/tree/main/samples](https://github.com/Zephyr4772/gujnorm/tree/main/samples)*
