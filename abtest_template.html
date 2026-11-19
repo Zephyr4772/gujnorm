@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="gu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gujarati Listening Test</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --ink: #1d1d1b; --muted: #6b6a66; --line: #e3e1db;
+    --accent: #1f6f5c; --accent-ink: #ffffff; --good: #1f7a3d; --bad: #b3261e; --chip: #efede7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161615; --card: #20201e; --ink: #ecebe6; --muted: #a3a29c; --line: #34332f;
+            --accent: #3fae92; --accent-ink: #0d1f1a; --good: #5cc27e; --bad: #f08b84; --chip: #2a2a27; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 16px/1.5 "Noto Sans Gujarati", "Shruti", system-ui, sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 20px; font-size: .95rem; }
+  .bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; margin-bottom: 20px; }
+  .bar > div { height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .label { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  .sentence { font-size: 1.3rem; margin: 6px 0 18px; }
+  .clip { border-top: 1px solid var(--line); padding: 14px 0; }
+  .clip h2 { font-size: 1rem; margin: 0 0 8px; }
+  audio { width: 100%; height: 40px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  button { font: inherit; border: 1px solid var(--line); background: var(--chip); color: var(--ink);
+           border-radius: 8px; padding: 8px 14px; cursor: pointer; min-height: 40px; }
+  button[aria-pressed="true"].ok { background: var(--good); border-color: var(--good); color: #fff; }
+  button[aria-pressed="true"].no { background: var(--bad); border-color: var(--bad); color: #fff; }
+  button[aria-pressed="true"].pick { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .nav { display: flex; justify-content: space-between; margin-top: 18px; gap: 8px; }
+  .primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .primary:disabled { opacity: .45; cursor: not-allowed; }
+  .help { color: var(--muted); font-size: .9rem; margin-top: 16px; }
+  textarea { width: 100%; min-height: 140px; font: 12px/1.4 ui-monospace, monospace; background: var(--chip);
+             color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Gujarati listening test</h1>
+  <p class="sub">For each sentence, listen to both clips. Mark whether each one reads the sentence correctly, then pick the one that sounds better. The order is random, and you aren't told which clip is which.</p>
+  <div class="bar"><div id="prog"></div></div>
+  <section class="card" id="trial"></section>
+  <p class="help">Your progress is saved in this browser. You can close the page and come back.</p>
+</main>
+<script>
+const TRIALS = __TRIALS__;
+const KEY = "gu-abtest-v1";
+let state = { i: 0, answers: {} };
+try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.answers) state = s; } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+const el = document.getElementById("trial");
+
+function btn(label, cls, pressed, on) {
+  const b = document.createElement("button");
+  b.textContent = label; b.className = cls; b.setAttribute("aria-pressed", pressed ? "true" : "false");
+  b.onclick = on; return b;
+}
+
+function render() {
+  document.getElementById("prog").style.width = (100 * Object.keys(state.answers).filter(k => done(state.answers[k])).length / TRIALS.length) + "%";
+  if (state.i >= TRIALS.length) return finish();
+  const t = TRIALS[state.i];
+  const a = state.answers[t.id] || (state.answers[t.id] = { c1: null, c2: null, pref: null });
+  el.innerHTML = "";
+  const lab = document.createElement("div"); lab.className = "label"; lab.textContent = `Sentence ${state.i + 1} of ${TRIALS.length}`;
+  const s = document.createElement("div"); s.className = "sentence"; s.textContent = t.text;
+  el.append(lab, s);
+  [1, 2].forEach(n => {
+    const c = document.createElement("div"); c.className = "clip";
+    const h = document.createElement("h2"); h.textContent = `Clip ${n}`;
+    const au = document.createElement("audio"); au.controls = true; au.preload = "auto"; au.src = `audio/${t.id}_${n}.wav`;
+    const r = document.createElement("div"); r.className = "row";
+    const k = "c" + n;
+    r.append(btn("✓ Correct", "ok", a[k] === true, () => { a[k] = true; save(); render(); }),
+             btn("✗ Wrong / odd", "no", a[k] === false, () => { a[k] = false; save(); render(); }));
+    c.append(h, au, r); el.append(c);
+  });
+  const p = document.createElement("div"); p.className = "clip";
+  const ph = document.createElement("h2"); ph.textContent = "Which sounds better?";
+  const pr = document.createElement("div"); pr.className = "row";
+  [["1", "Clip 1"], ["same", "Same"], ["2", "Clip 2"]].forEach(([v, l]) =>
+    pr.append(btn(l, "pick", a.pref === v, () => { a.pref = v; save(); render(); })));
+  p.append(ph, pr); el.append(p);
+  const nav = document.createElement("div"); nav.className = "nav";
+  const back = btn("← Back", "", false, () => { state.i = Math.max(0, state.i - 1); save(); render(); });
+  back.disabled = state.i === 0;
+  const next = btn(state.i === TRIALS.length - 1 ? "Finish" : "Next →", "primary", false, () => { state.i++; save(); render(); });
+  next.disabled = !done(a);
+  nav.append(back, next); el.append(nav);
+}
+const done = a => a && a.c1 !== null && a.c2 !== null && a.pref !== null;
+
+function finish() {
+  const out = JSON.stringify({ version: 1, finished: new Date().toISOString(), answers: state.answers }, null, 1);
+  el.innerHTML = `<div class="label">Done</div><div class="sentence">Thank you. All ${TRIALS.length} sentences rated.</div>
+    <p>Save the answers file into the <code>out/abtest</code> folder, next to this page.</p>`;
+  const row = document.createElement("div"); row.className = "row";
+  row.append(btn("Download answers.json", "primary", false, () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([out], { type: "application/json" }));
+    a.download = "answers.json"; a.click();
+  }), btn("← Review answers", "", false, () => { state.i = 0; save(); render(); }));
+  const ta = document.createElement("textarea"); ta.readOnly = true; ta.value = out;
+  const hint = document.createElement("p"); hint.className = "help"; hint.textContent = "If the download doesn't work, copy this text into a file named answers.json:";
+  el.append(row, hint, ta);
+}
+render();
+</script>
+</body>
+</html>

@@ -61,7 +61,27 @@ def dates(t):
                lambda m: _date(m[1], m[2], m[3]) or m[0], t)
     t = re.sub(rf"{NS}(\d{{1,2}})\s+({_MONTH_ALT})\s+(\d{{4}}){NE}",
                lambda m: f"{num_words(int(m[1]))} {m[2]} {year_words(int(m[3]))}", t)
+    # English month names, either order: "March 12, 1930" / "12 March 1930" / "April 21"
+    t = re.sub(rf"\b({_EN_MONTH_ALT})\.?\s+(\d{{1,2}})(?:st|nd|rd|th)?(?:,?\s+(\d{{4}}))?{NE}",
+               lambda m: _en_date(m[2], m[1], m[3]), t)
+    t = re.sub(rf"{NS}(\d{{1,2}})(?:st|nd|rd|th)?\s+({_EN_MONTH_ALT})\.?(?:,?\s+(\d{{4}}))?{NE}",
+               lambda m: _en_date(m[1], m[2], m[3]), t)
     return t
+
+
+_EN_MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august",
+              "september", "october", "november", "december"]
+_EN_MONTH_ALT = "|".join([m.capitalize() for m in _EN_MONTHS] + [m[:3].capitalize() for m in _EN_MONTHS if m != "may"])
+
+
+def _en_date(d, mon, y):
+    d = int(d)
+    key = mon.lower()[:3]
+    idx = [m[:3] for m in _EN_MONTHS].index(key)
+    if not 1 <= d <= 31:
+        return f"{mon} {d}"
+    s = f"{num_words(d)} {MONTHS[idx]}"
+    return s + (f" {year_words(int(y))}" if y else "")
 
 
 def simple_fractions(t):
@@ -74,7 +94,7 @@ _AMPM = r"(?:[AaPp]\.?\s?[Mm]\.?)(?![A-Za-z])"
 _HAS_PERIOD = re.compile(r"(સવારે|બપોરે|સાંજે|રાત્રે|સવારના|બપોરના|સાંજના|રાતના|રાત્રિના)\s*$")
 _VAGYE = re.compile(r"\s*(વાગ્યે|વાગે|વાગ્યા|વાગ્યાથી|વાગ્યાનો|વાગ્યાની|વાગ્યાના)")
 _GLUE_POST = re.compile(r"(થી|નો|ની|નું|ના)" + END)
-_SPACE_POST = re.compile(r"\s+(થી|સુધી|વચ્ચે|પહેલાં|પહેલા|પછી|નો|ની|નું|ના)" + END)
+_SPACE_POST = re.compile(r"\s+(થી|સુધીમાં|સુધી|વચ્ચે|પહેલાં|પહેલા|પછી|બાદ|આસપાસ|નો|ની|નું|ના)" + END)
 _AT = re.compile(r"\s+(એ|પર|પરે)" + END)
 _TIME = re.compile(rf"{NS}(\d{{1,2}})(?::(\d{{2}})(?:\s*({_AMPM}))?|\s*({_AMPM})){NE}")
 
@@ -150,14 +170,17 @@ def math_symbols(t):
 
 # ---------------- 7. money ----------------
 _POST_GLUE = r"(ની|નું|નો|ના|નાં|માં|થી|નુ)"
+_SCALE = r"લાખ|કરોડ|હજાર|Crore|crore|Cr\.?|cr\.?|Lakh|lakh|Lac|lac|L(?![A-Za-z])"
+_SCALE_MAP = {"cr": "કરોડ", "crore": "કરોડ", "lakh": "લાખ", "lac": "લાખ", "l": "લાખ"}
 _MONEY = re.compile(
-    rf"(?:₹|Rs\.?|INR|Rs)\s*(\d[\d,]*)(?:\.(\d+))?(?:\s*(લાખ|કરોડ|હજાર))?"
+    rf"(?:₹|Rs\.?|INR|Rs)\s*(\d[\d,]*)(?:\.(\d+))?(?:\s*({_SCALE}))?"
     rf"(?:{_POST_GLUE}{END}|\s+(ની|નું|નો|ના|નાં){END})?")
 
 
 def _amount(intpart, frac, scale):
     n = int(intpart.replace(",", ""))
     if scale:
+        scale = _SCALE_MAP.get(scale.lower().rstrip("."), scale)
         w = fraction_words(n, frac) if frac else num_words(n)
         return f"{w} {scale} રૂપિયા"
     s = f"{num_words(n)} રૂપિયા"
@@ -171,9 +194,15 @@ def _amount(intpart, frac, scale):
 def money(t):
     t = _MONEY.sub(lambda m: _amount(m[1], m[2], m[3]) + (m[4] or m[5] or ""), t)
     t = re.sub(rf"{NS}(\d[\d,]*)\s*/-", lambda m: num_words(int(m[1].replace(",", ""))) + " રૂપિયા", t)
-    t = re.sub(r"\$\s*(\d[\d,]*)(?:\.(\d+))?",
-               lambda m: (fraction_words(int(m[1].replace(",", "")), m[2]) if m[2]
-                          else num_words(int(m[1].replace(",", "")))) + " ડોલર", t)
+    def dollars(m):
+        d = int(m[1].replace(",", ""))
+        s = f"{num_words(d)} ડોલર"
+        if m[2]:
+            cents = int((m[2] + "0")[:2])
+            if cents:
+                s += f" {num_words(cents)} સેન્ટ"
+        return s
+    t = re.sub(r"\$\s*(\d[\d,]*)(?:\.(\d+))?", dollars, t)
     return t
 
 
@@ -185,16 +214,34 @@ def percent(t):
 
 # ---------------- 9. units ----------------
 _UNITS = [
-    ("km/h", "કિલોમીટર પ્રતિ કલાક"), ("kmph", "કિલોમીટર પ્રતિ કલાક"), ("km", "કિલોમીટર"),
+    ("km/h", "કિલોમીટર પ્રતિ કલાક"), ("kmph", "કિલોમીટર પ્રતિ કલાક"), ("km/l", "કિલોમીટર પ્રતિ લીટર"),
+    ("m/s", "મીટર પ્રતિ સેકન્ડ"), ("km", "કિલોમીટર"), ("kWh", "કિલોવોટ કલાક"), ("kW", "કિલોવોટ"),
     ("kg", "કિલો"), ("mg", "મિલિગ્રામ"), ("ml", "મિલીલીટર"), ("cm", "સેન્ટિમીટર"),
     ("mm", "મિલીમીટર"), ("g", "ગ્રામ"), ("°C", "ડિગ્રી સેલ્સિયસ"), ("°F", "ડિગ્રી ફેરનહીટ"), ("°", "ડિગ્રી"),
 ]
+# single-letter / SI units: only after "<number><space>" and before a word end, to avoid eating ordinary letters
+_SI_UNITS = [("Pa", "પાસ્કલ"), ("Hz", "હર્ટ્ઝ"), ("A", "એમ્પિયર"), ("W", "વોટ"), ("V", "વોલ્ટ"),
+             ("N", "ન્યૂટન"), ("s", "સેકન્ડ"), ("m", "મીટર")]
 
 
 def units(t):
     for u, w in _UNITS:
         t = re.sub(rf"(?<=\d)\s*{re.escape(u)}(?![A-Za-z])", " " + w, t)
+    for u, w in _SI_UNITS:
+        t = re.sub(rf"(?<=\d) ?{u}(?=[\s.,;:!?)]|$)", " " + w, t)
     return t
+
+
+def sci_notation(t):
+    """3 x 10^8 -> ત્રણ ગુણ્યા દસની ઘાત આઠ"""
+    return re.sub(r"(?<![\d.])(\d+(?:\.\d+)?)\s*[x×]\s*10\^(-?\d+)",
+                  lambda m: f"{m[1]} ગુણ્યા દસની ઘાત {'માઇનસ ' if m[2].startswith('-') else ''}{m[2].lstrip('-')}", t)
+
+
+def slashes(t):
+    """7/12 (Gujarat land record) -> સાત બાર; other N/M that is not a date -> N બટા M"""
+    t = re.sub(r"(?<![\d/])7/12(?![\d/])", "સાત બાર", t)
+    return re.sub(r"(?<![\d/])(\d+)/(\d+)(?![\d/])", lambda m: f"{m[1]} બટા {m[2]}", t)
 
 
 # ---------------- 10. ranges ----------------
@@ -242,8 +289,8 @@ def integers(t):
         after = t[m.end():m.end() + 12]
         if len(s) > 1 and s[0] == "0":
             return digit_words(s)
-        if len(s) >= 6 and not re.match(r"\s*(રૂપિયા|ડોલર|લોકો|વોટ)", after):
-            return digit_words(s)
+        if len(s) >= 8 and not re.match(r"\s*(રૂપિયા|ડોલર|લોકો)", after):
+            return digit_words(s)        # long bare numbers are IDs; 6–7 digits stay cardinal (101325 Pa)
         n = int(s)
         if 1100 <= n <= 1999:
             return year_words(n)
@@ -253,7 +300,9 @@ def integers(t):
 
 # ---------------- protect alphanumeric IDs (GJ01AB1234, SBIN0001234, SR-2026-00451, #A7B9) ----------------
 # Bulbul already reads these letter-by-letter; we only make sure no number pass touches them.
-_ALNUM = re.compile(r"(?<![A-Za-z0-9])#?(?=[A-Za-z0-9\-]*[A-Za-z])(?=[A-Za-z0-9\-]*\d)[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*")
+# also chemistry names / formulas: 1,3-butadiene, Si(CH3)4, C6H12O6, B12
+_ALNUM = re.compile(r"(?<![A-Za-z0-9])#?(?=[A-Za-z0-9\-,()]*[A-Za-z])(?=[A-Za-z0-9\-,()]*\d)"
+                    r"[A-Za-z0-9()]+(?:[\-,/][A-Za-z0-9()]+)*")
 _PH_BASE = 0xE100
 _local = threading.local()   # voice agents call this from many threads
 
@@ -284,4 +333,5 @@ def cleanup(t):
 
 
 PASSES = [gujarati_digits, units, glue_ampm, protect, abbreviations, dates, simple_fractions, times, ids,
-          math_symbols, money, percent, ranges, ordinals, decimals, integers, restore, cleanup]
+          sci_notation, math_symbols, money, percent, slashes, ranges, ordinals, decimals, integers,
+          restore, cleanup]
