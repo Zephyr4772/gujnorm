@@ -26,6 +26,18 @@ from testset import ITEMS
 EXP = {it["id"]: it["expect"] for it in ITEMS}
 rows = [json.loads(l) for l in open(O / "eval_rows.jsonl", encoding="utf-8")]
 
+_ab = lambda pat, t: bool(re.search(r"(?<![઀-૿])" + pat, t))
+
+# items whose test sentence was corrected after the audio was recorded: judge against what was recorded
+RECORDED_EXP = {"ord041": ("5મો દિવસ રજા છે.", ["પાંચમો"])}
+
+
+def expect_for(r):
+    if r["id"] in RECORDED_EXP and r["raw_text"] == RECORDED_EXP[r["id"]][0]:
+        return RECORDED_EXP[r["id"]][1]
+    return EXP[r["id"]]
+
+
 # ---------- defect classes, detected in what the voice actually said ----------
 CLASSES = {
     "time: 'X વાગ્યે Y મિનિટ' instead of સવા/સાડા/પોણા/દોઢ/અઢી":
@@ -42,10 +54,11 @@ CLASSES = {
         lambda t, h: bool(re.search(r"(?<![A-Za-z\-\d])\d+\s?-\s?\d+(?![\d\-/])", t)) and "થી" not in h,
     "ordinal mangled (1લા->એકલા, 4થું->ચારથું, 3જી->ત્રણ જી)":
         lambda t, h: bool(re.search(r"\d(લ|જ|થ|મ)", t)) and re.search(r"એકલા|ચારથું|ત્રણ જી|ત્રણ જે|બેજા", h),
+    # abbreviations only as standalone words: "હતા." must not count as "તા.", and "તા.ક." is its own abbreviation
     "abbreviation not expanded (તા. નં. કિ.મી. ઇ.સ. રૂ.)":
-        lambda t, h: (("તા." in t and "તારીખ" not in h) or ("કિ.મી." in t and "કિલોમીટર" not in h)
-                      or ("ઇ.સ." in t and "ઈસવીસન" not in h) or ("રૂ." in t and "રૂપિયા" not in h)
-                      or ("નં." in t and "નંબર" not in h)),
+        lambda t, h: ((_ab(r"તા\.(?!\s?ક\.)", t) and "તારીખ" not in h) or ("કિ.મી." in t and "કિલોમીટર" not in h)
+                      or (_ab(r"[ઇઈ]\.\s?સ\.", t) and "ઈસવીસન" not in h) or (_ab(r"રૂ\.", t) and "રૂપિયા" not in h)
+                      or (_ab(r"નં\.", t) and "નંબર" not in h)),
     "math/symbol read in English (plus, equals, slash)":
         lambda t, h: bool(re.search(r"\d\s*[+=/]\s*\d", t)) and re.search(r"પ્લસ|ઇક્વલ|બાય|સ્લેશ", h)
                      and not re.search(r"\+91", t),
@@ -60,7 +73,7 @@ for v in voices:
     bad = []
     cats = collections.defaultdict(lambda: [0, 0])
     for r in R:
-        m = missing(EXP[r["id"]], r["raw_heard"])
+        m = missing(expect_for(r), r["raw_heard"])
         cls = [c for c, f in CLASSES.items() if f(r["raw_text"], r["raw_heard"] or "")]
         defect = bool(m) or bool(cls)
         cats[r["cat"]][0] += 1
@@ -69,7 +82,7 @@ for v in voices:
             bad.append(r["id"])
         for c in cls:
             out["classes"].setdefault(c, {}).setdefault(v, []).append(r["id"])
-    fixed_bad = [r["id"] for r in R if missing(EXP[r["id"]], r["fixed_heard"])
+    fixed_bad = [r["id"] for r in R if missing(expect_for(r), r["fixed_heard"])
                  or any(f(r["raw_text"], r["fixed_heard"] or "") for c, f in CLASSES.items()
                         if not c.startswith("year"))]
     out["tts"][v] = {"n": len(R), "raw_defective": len(bad), "fixed_defective": len(fixed_bad),

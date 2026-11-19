@@ -17,11 +17,15 @@ The voices pronounce Gujarati **words** perfectly. `gujnorm` turns the written f
 
 ## Results (Bulbul TTS → Saaras STT, 108 stress sentences that gujnorm changes)
 
-| Voice | Expected Gujarati spoken: before → after | English words in the speech: before → after |
-|---|---|---|
-| bulbul:v3 (default) | 68 → **108 / 108** | 15 → 2 |
-| bulbul:v4-flash `pooja_gu_customer` | 73 → **106 / 108** | 15 → 2 |
-| bulbul:v4-flash `bhavik_gu_conversation` | 71 → **107 / 108** | 11 → 1 |
+| Voice | Sentences misread: before → after (of 108) |
+|---|---|
+| bulbul:v3 (default) | 59 → **0** |
+| bulbul:v4-flash `pooja_gu_customer` | 55 → **2** |
+| bulbul:v4-flash `bhavik_gu_conversation` | 56 → **1** |
+
+Misread means an expected spoken word is missing, or a number or symbol is said in English ("rupees", "percent").
+53 sentences fail on all three voices. Every ₹ (20/20), every clock time that isn't a whole hour (9/9) and every
+x.5/x.25/x.75 (13/13) is misread on every voice. Counts: `stats.py` → `results/stats.json`.
 
 - **Blind native-speaker A/B test** (36 pairs): where Sarvam misread the sentence, the listener judged Sarvam correct
   0/20 and gujnorm 19/20, and preferred gujnorm 18 to 1 (sign test p = 0.00008). Where both clips had the same words,

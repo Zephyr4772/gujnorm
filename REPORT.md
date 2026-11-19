@@ -22,6 +22,18 @@ the text cleanup step.
 | 10-15 દિવસ | **એક શૂન્ય એક પાંચ** દિવસ | દસથી પંદર દિવસ |
 | 1લા નંબરે | **એકલા** ("alone") નંબરે | પહેલા નંબરે |
 
+**How often** (108 test sentences with numbers or symbols, misread / tested; v3 · v4 `pooja_gu_customer` · v4 `bhavik_gu_conversation`):
+
+| Pattern | v3 | v4 pooja | v4 bhavik |
+|---|---|---|---|
+| ₹ / Rs. read as English "rupees" | 20/20 | 20/20 | 20/20 |
+| Clock time that isn't a whole hour | 9/9 | 9/9 | 9/9 |
+| x.5 / x.25 / x.75 not read as દોઢ / અઢી / સાડા / સવા / પોણા | 13/13 | 13/13 | 13/13 |
+| Any misreading, all 108 sentences | 59 (55%) | 55 (51%) | 56 (52%) |
+
+53 sentences fail on all three voices. Phone numbers, OTPs and IDs are read correctly (0–1 of 10).
+The sentences were written to stress number reading, so ordinary text will show a lower rate.
+
 The **Transliterate `spoken_form`** API is worse for times. It returns **wrong times** in 7 of 10 Gujarati cases, the same
 way on every run: 9:30 → સવા દસ (10:15), 1:30 → સવા એક (1:15), 6:45 → સાડા છ (6:30). The docs' own example
 (`9:30am`) gives "સવારે સવા દસ વાગ્યે એ.એમ." in Gujarati. Hindi gets 8 of 10 right.
@@ -38,11 +50,14 @@ chemical formulas are left untouched.
 ## Results
 **Through Sarvam's own voices** (108 stress sentences, Bulbul → Saaras `verbatim`):
 
-| Voice | Expected Gujarati spoken: before → after | English-word slips |
-|---|---|---|
-| bulbul:v3 | 68 → **108 / 108** | 15 → 2 |
-| v4-flash `pooja_gu_customer` | 73 → **106 / 108** | 15 → 2 |
-| v4-flash `bhavik_gu_conversation` | 71 → **107 / 108** | 11 → 1 |
+| Voice | Sentences misread: before → after (of 108) |
+|---|---|
+| bulbul:v3 | 59 → **0** |
+| v4-flash `pooja_gu_customer` | 55 → **2** |
+| v4-flash `bhavik_gu_conversation` | 56 → **1** |
+
+"Misread" means an expected spoken word is missing, or a number or symbol is said in English ("rupees", "percent", "point").
+The 3 remaining misses are on the voice side: v4 says "પોણો" so it is heard as "પૂર્ણો"/"કોણ", and once adds "ને" inside "ઓગણીસો નેવું".
 
 **On Sarvam's `tts-robustness-benchmark` (gu, 81 sentences):** gujnorm rewrites 35 sentences (Numerics 21/23,
 STEM 11/22, Code-mixed 3/7), leaves names, URLs and romanized text alone, and leaves no stray digits.

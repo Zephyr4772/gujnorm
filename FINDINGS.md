@@ -64,11 +64,11 @@ Bulbul v3 was retired on Voice Agents on 10 Nov 2026, so every Gujarati agent no
 ## Fix built: `gujnorm` (see README.md, DESIGN.md)
 Native-speaker check: the hand-fixed clips sound correct and the raw ones sound wrong (confirmed by ear).
 
-| Voice | Expected Gujarati spoken: before → after (108 sentences) | English-word slips |
+| Voice | Sentences misread: before → after (108 sentences) | English-word slips |
 |---|---|---|
-| bulbul:v3 | 68 → **108** | 15 → 2 |
-| v4-flash pooja_gu_customer | 73 → **106** | 15 → 2 |
-| v4-flash bhavik_gu_conversation | 71 → **107** | 11 → 1 |
+| bulbul:v3 | 59 → **0** | 15 → 2 |
+| v4-flash pooja_gu_customer | 55 → **2** | 15 → 2 |
+| v4-flash bhavik_gu_conversation | 56 → **1** | 11 → 1 |
 
 Scoring note: Saaras `verbatim` sometimes writes numbers back as digits. The digits in the transcript are spelled out
 the same way for both raw and fixed audio before checking, so the score checks the number's value either way.

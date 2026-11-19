@@ -2,8 +2,8 @@
  "tts": {
   "v3": {
    "n": 108,
-   "raw_defective": 61,
-   "fixed_defective": 3,
+   "raw_defective": 59,
+   "fixed_defective": 0,
    "by_category": {
     "abbr": {
      "n": 5,
@@ -35,11 +35,11 @@
     },
     "num": {
      "n": 18,
-     "raw_defective": 8
+     "raw_defective": 7
     },
     "ord": {
      "n": 7,
-     "raw_defective": 5
+     "raw_defective": 4
     },
     "range": {
      "n": 3,
@@ -62,7 +62,6 @@
     "num000",
     "num001",
     "num002",
-    "num005",
     "num009",
     "num011",
     "num014",
@@ -88,7 +87,6 @@
     "ord038",
     "ord039",
     "ord040",
-    "ord041",
     "time044",
     "time045",
     "time046",
@@ -121,16 +119,12 @@
     "agent172",
     "agent173"
    ],
-   "fixed_defective_ids": [
-    "num005",
-    "ord041",
-    "abbr101"
-   ]
+   "fixed_defective_ids": []
   },
   "v4_pooja_cust": {
    "n": 108,
-   "raw_defective": 57,
-   "fixed_defective": 5,
+   "raw_defective": 55,
+   "fixed_defective": 2,
    "by_category": {
     "abbr": {
      "n": 5,
@@ -162,11 +156,11 @@
     },
     "num": {
      "n": 18,
-     "raw_defective": 8
+     "raw_defective": 7
     },
     "ord": {
      "n": 7,
-     "raw_defective": 4
+     "raw_defective": 3
     },
     "range": {
      "n": 3,
@@ -189,7 +183,6 @@
     "num000",
     "num001",
     "num002",
-    "num005",
     "num009",
     "num011",
     "num014",
@@ -213,7 +206,6 @@
     "ord037",
     "ord039",
     "ord040",
-    "ord041",
     "time044",
     "time045",
     "time046",
@@ -245,17 +237,14 @@
     "agent173"
    ],
    "fixed_defective_ids": [
-    "num005",
     "frac033",
-    "ord041",
-    "abbr101",
     "agent168"
    ]
   },
   "v4_bhavik": {
    "n": 108,
-   "raw_defective": 58,
-   "fixed_defective": 4,
+   "raw_defective": 56,
+   "fixed_defective": 1,
    "by_category": {
     "abbr": {
      "n": 5,
@@ -287,11 +276,11 @@
     },
     "num": {
      "n": 18,
-     "raw_defective": 8
+     "raw_defective": 7
     },
     "ord": {
      "n": 7,
-     "raw_defective": 4
+     "raw_defective": 3
     },
     "range": {
      "n": 3,
@@ -314,7 +303,6 @@
     "num000",
     "num001",
     "num002",
-    "num005",
     "num009",
     "num011",
     "num014",
@@ -338,7 +326,6 @@
     "ord037",
     "ord039",
     "ord040",
-    "ord041",
     "time044",
     "time045",
     "time046",
@@ -371,10 +358,7 @@
     "agent173"
    ],
    "fixed_defective_ids": [
-    "num005",
-    "frac033",
-    "ord041",
-    "abbr101"
+    "frac033"
    ]
   }
  },
@@ -447,39 +431,6 @@
     "agent173"
    ]
   },
-  "abbreviation not expanded (તા. નં. કિ.મી. ઇ.સ. રૂ.)": {
-   "v3": [
-    "num005",
-    "gudigit020",
-    "date054",
-    "money061",
-    "unit088",
-    "abbr100",
-    "abbr101",
-    "abbr102",
-    "agent166"
-   ],
-   "v4_pooja_cust": [
-    "num005",
-    "gudigit020",
-    "date054",
-    "money061",
-    "unit088",
-    "abbr101",
-    "abbr102",
-    "agent166"
-   ],
-   "v4_bhavik": [
-    "num005",
-    "gudigit020",
-    "date054",
-    "money061",
-    "unit088",
-    "abbr101",
-    "abbr102",
-    "agent166"
-   ]
-  },
   "year read digit by digit": {
    "v3": [
     "num014"
@@ -489,6 +440,33 @@
    ],
    "v4_bhavik": [
     "num014"
+   ]
+  },
+  "abbreviation not expanded (તા. નં. કિ.મી. ઇ.સ. રૂ.)": {
+   "v3": [
+    "gudigit020",
+    "date054",
+    "money061",
+    "unit088",
+    "abbr100",
+    "abbr102",
+    "agent166"
+   ],
+   "v4_pooja_cust": [
+    "gudigit020",
+    "date054",
+    "money061",
+    "unit088",
+    "abbr102",
+    "agent166"
+   ],
+   "v4_bhavik": [
+    "gudigit020",
+    "date054",
+    "money061",
+    "unit088",
+    "abbr102",
+    "agent166"
    ]
   },
   "time: 'X વાગ્યે Y મિનિટ' instead of સવા/સાડા/પોણા/દોઢ/અઢી": {
@@ -683,7 +661,6 @@
   "num000",
   "num001",
   "num002",
-  "num005",
   "num009",
   "num011",
   "num014",
@@ -691,7 +668,6 @@
   "ord037",
   "ord039",
   "ord040",
-  "ord041",
   "range085",
   "range086",
   "time044",
@@ -746,7 +722,6 @@
   "num000",
   "num001",
   "num002",
-  "num005",
   "num009",
   "num011",
   "num014",
@@ -755,7 +730,6 @@
   "ord038",
   "ord039",
   "ord040",
-  "ord041",
   "range085",
   "range086",
   "time044",
