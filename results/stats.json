@@ -1,0 +1,870 @@
+{
+ "tts": {
+  "v3": {
+   "n": 108,
+   "raw_defective": 61,
+   "fixed_defective": 3,
+   "by_category": {
+    "abbr": {
+     "n": 5,
+     "raw_defective": 3
+    },
+    "agent": {
+     "n": 9,
+     "raw_defective": 5
+    },
+    "date": {
+     "n": 6,
+     "raw_defective": 1
+    },
+    "frac": {
+     "n": 13,
+     "raw_defective": 13
+    },
+    "gudigit": {
+     "n": 6,
+     "raw_defective": 4
+    },
+    "id": {
+     "n": 10,
+     "raw_defective": 0
+    },
+    "money": {
+     "n": 11,
+     "raw_defective": 10
+    },
+    "num": {
+     "n": 18,
+     "raw_defective": 8
+    },
+    "ord": {
+     "n": 7,
+     "raw_defective": 5
+    },
+    "range": {
+     "n": 3,
+     "raw_defective": 2
+    },
+    "time": {
+     "n": 9,
+     "raw_defective": 7
+    },
+    "unicode": {
+     "n": 1,
+     "raw_defective": 0
+    },
+    "unit": {
+     "n": 10,
+     "raw_defective": 3
+    }
+   },
+   "raw_defective_ids": [
+    "num000",
+    "num001",
+    "num002",
+    "num005",
+    "num009",
+    "num011",
+    "num014",
+    "num017",
+    "gudigit018",
+    "gudigit020",
+    "gudigit022",
+    "gudigit023",
+    "frac024",
+    "frac025",
+    "frac026",
+    "frac027",
+    "frac028",
+    "frac029",
+    "frac030",
+    "frac031",
+    "frac032",
+    "frac033",
+    "frac034",
+    "frac035",
+    "frac036",
+    "ord037",
+    "ord038",
+    "ord039",
+    "ord040",
+    "ord041",
+    "time044",
+    "time045",
+    "time046",
+    "time047",
+    "time048",
+    "time049",
+    "time052",
+    "date054",
+    "money059",
+    "money060",
+    "money061",
+    "money063",
+    "money064",
+    "money065",
+    "money066",
+    "money067",
+    "money068",
+    "money069",
+    "range085",
+    "range086",
+    "unit088",
+    "unit092",
+    "unit094",
+    "abbr100",
+    "abbr101",
+    "abbr102",
+    "agent166",
+    "agent170",
+    "agent171",
+    "agent172",
+    "agent173"
+   ],
+   "fixed_defective_ids": [
+    "num005",
+    "ord041",
+    "abbr101"
+   ]
+  },
+  "v4_pooja_cust": {
+   "n": 108,
+   "raw_defective": 57,
+   "fixed_defective": 5,
+   "by_category": {
+    "abbr": {
+     "n": 5,
+     "raw_defective": 2
+    },
+    "agent": {
+     "n": 9,
+     "raw_defective": 6
+    },
+    "date": {
+     "n": 6,
+     "raw_defective": 1
+    },
+    "frac": {
+     "n": 13,
+     "raw_defective": 13
+    },
+    "gudigit": {
+     "n": 6,
+     "raw_defective": 3
+    },
+    "id": {
+     "n": 10,
+     "raw_defective": 0
+    },
+    "money": {
+     "n": 11,
+     "raw_defective": 9
+    },
+    "num": {
+     "n": 18,
+     "raw_defective": 8
+    },
+    "ord": {
+     "n": 7,
+     "raw_defective": 4
+    },
+    "range": {
+     "n": 3,
+     "raw_defective": 2
+    },
+    "time": {
+     "n": 9,
+     "raw_defective": 7
+    },
+    "unicode": {
+     "n": 1,
+     "raw_defective": 0
+    },
+    "unit": {
+     "n": 10,
+     "raw_defective": 2
+    }
+   },
+   "raw_defective_ids": [
+    "num000",
+    "num001",
+    "num002",
+    "num005",
+    "num009",
+    "num011",
+    "num014",
+    "num017",
+    "gudigit018",
+    "gudigit020",
+    "gudigit022",
+    "frac024",
+    "frac025",
+    "frac026",
+    "frac027",
+    "frac028",
+    "frac029",
+    "frac030",
+    "frac031",
+    "frac032",
+    "frac033",
+    "frac034",
+    "frac035",
+    "frac036",
+    "ord037",
+    "ord039",
+    "ord040",
+    "ord041",
+    "time044",
+    "time045",
+    "time046",
+    "time047",
+    "time048",
+    "time049",
+    "time052",
+    "date054",
+    "money059",
+    "money060",
+    "money061",
+    "money063",
+    "money064",
+    "money066",
+    "money067",
+    "money068",
+    "money069",
+    "range085",
+    "range086",
+    "unit088",
+    "unit094",
+    "abbr101",
+    "abbr102",
+    "agent166",
+    "agent167",
+    "agent170",
+    "agent171",
+    "agent172",
+    "agent173"
+   ],
+   "fixed_defective_ids": [
+    "num005",
+    "frac033",
+    "ord041",
+    "abbr101",
+    "agent168"
+   ]
+  },
+  "v4_bhavik": {
+   "n": 108,
+   "raw_defective": 58,
+   "fixed_defective": 4,
+   "by_category": {
+    "abbr": {
+     "n": 5,
+     "raw_defective": 2
+    },
+    "agent": {
+     "n": 9,
+     "raw_defective": 6
+    },
+    "date": {
+     "n": 6,
+     "raw_defective": 1
+    },
+    "frac": {
+     "n": 13,
+     "raw_defective": 13
+    },
+    "gudigit": {
+     "n": 6,
+     "raw_defective": 3
+    },
+    "id": {
+     "n": 10,
+     "raw_defective": 1
+    },
+    "money": {
+     "n": 11,
+     "raw_defective": 9
+    },
+    "num": {
+     "n": 18,
+     "raw_defective": 8
+    },
+    "ord": {
+     "n": 7,
+     "raw_defective": 4
+    },
+    "range": {
+     "n": 3,
+     "raw_defective": 2
+    },
+    "time": {
+     "n": 9,
+     "raw_defective": 7
+    },
+    "unicode": {
+     "n": 1,
+     "raw_defective": 0
+    },
+    "unit": {
+     "n": 10,
+     "raw_defective": 2
+    }
+   },
+   "raw_defective_ids": [
+    "num000",
+    "num001",
+    "num002",
+    "num005",
+    "num009",
+    "num011",
+    "num014",
+    "num017",
+    "gudigit018",
+    "gudigit020",
+    "gudigit022",
+    "frac024",
+    "frac025",
+    "frac026",
+    "frac027",
+    "frac028",
+    "frac029",
+    "frac030",
+    "frac031",
+    "frac032",
+    "frac033",
+    "frac034",
+    "frac035",
+    "frac036",
+    "ord037",
+    "ord039",
+    "ord040",
+    "ord041",
+    "time044",
+    "time045",
+    "time046",
+    "time047",
+    "time048",
+    "time049",
+    "time052",
+    "date054",
+    "money059",
+    "money060",
+    "money061",
+    "money064",
+    "money065",
+    "money066",
+    "money067",
+    "money068",
+    "money069",
+    "id071",
+    "range085",
+    "range086",
+    "unit088",
+    "unit094",
+    "abbr101",
+    "abbr102",
+    "agent166",
+    "agent167",
+    "agent170",
+    "agent171",
+    "agent172",
+    "agent173"
+   ],
+   "fixed_defective_ids": [
+    "num005",
+    "frac033",
+    "ord041",
+    "abbr101"
+   ]
+  }
+ },
+ "classes": {
+  "₹ / Rs read as English 'rupees'": {
+   "v3": [
+    "num000",
+    "num001",
+    "num002",
+    "num009",
+    "num017",
+    "gudigit018",
+    "frac030",
+    "frac031",
+    "frac034",
+    "frac035",
+    "frac036",
+    "money059",
+    "money060",
+    "money063",
+    "money064",
+    "money065",
+    "money069",
+    "agent166",
+    "agent172",
+    "agent173"
+   ],
+   "v4_pooja_cust": [
+    "num000",
+    "num001",
+    "num002",
+    "num009",
+    "num017",
+    "gudigit018",
+    "frac030",
+    "frac031",
+    "frac034",
+    "frac035",
+    "frac036",
+    "money059",
+    "money060",
+    "money063",
+    "money064",
+    "money069",
+    "agent166",
+    "agent167",
+    "agent172",
+    "agent173"
+   ],
+   "v4_bhavik": [
+    "num000",
+    "num001",
+    "num002",
+    "num009",
+    "num017",
+    "gudigit018",
+    "frac030",
+    "frac031",
+    "frac034",
+    "frac035",
+    "frac036",
+    "money059",
+    "money060",
+    "money064",
+    "money065",
+    "money069",
+    "agent166",
+    "agent167",
+    "agent172",
+    "agent173"
+   ]
+  },
+  "abbreviation not expanded (તા. નં. કિ.મી. ઇ.સ. રૂ.)": {
+   "v3": [
+    "num005",
+    "gudigit020",
+    "date054",
+    "money061",
+    "unit088",
+    "abbr100",
+    "abbr101",
+    "abbr102",
+    "agent166"
+   ],
+   "v4_pooja_cust": [
+    "num005",
+    "gudigit020",
+    "date054",
+    "money061",
+    "unit088",
+    "abbr101",
+    "abbr102",
+    "agent166"
+   ],
+   "v4_bhavik": [
+    "num005",
+    "gudigit020",
+    "date054",
+    "money061",
+    "unit088",
+    "abbr101",
+    "abbr102",
+    "agent166"
+   ]
+  },
+  "year read digit by digit": {
+   "v3": [
+    "num014"
+   ],
+   "v4_pooja_cust": [
+    "num014"
+   ],
+   "v4_bhavik": [
+    "num014"
+   ]
+  },
+  "time: 'X વાગ્યે Y મિનિટ' instead of સવા/સાડા/પોણા/દોઢ/અઢી": {
+   "v3": [
+    "gudigit022",
+    "time044",
+    "time045",
+    "time046",
+    "time047",
+    "time048",
+    "time049",
+    "time052",
+    "agent171"
+   ],
+   "v4_pooja_cust": [
+    "gudigit022",
+    "time044",
+    "time045",
+    "time046",
+    "time047",
+    "time048",
+    "time049",
+    "time052",
+    "agent171"
+   ],
+   "v4_bhavik": [
+    "gudigit022",
+    "time044",
+    "time045",
+    "time046",
+    "time047",
+    "time048",
+    "time049",
+    "time052",
+    "agent171"
+   ]
+  },
+  "decimal read as 'દશાંશ/પોઇન્ટ' instead of a fraction word": {
+   "v3": [
+    "frac024",
+    "frac025",
+    "frac026",
+    "frac027",
+    "frac028",
+    "frac029",
+    "frac030",
+    "frac031",
+    "money066",
+    "agent173"
+   ],
+   "v4_pooja_cust": [
+    "frac024",
+    "frac025",
+    "frac026",
+    "frac027",
+    "frac028",
+    "frac029",
+    "frac030",
+    "frac031",
+    "money066",
+    "agent167",
+    "agent173"
+   ],
+   "v4_bhavik": [
+    "frac024",
+    "frac025",
+    "frac026",
+    "frac027",
+    "frac028",
+    "frac029",
+    "frac030",
+    "frac031",
+    "money066",
+    "agent167",
+    "agent173"
+   ]
+  },
+  "math/symbol read in English (plus, equals, slash)": {
+   "v3": [
+    "frac032",
+    "frac033",
+    "unit094"
+   ],
+   "v4_pooja_cust": [
+    "frac032",
+    "frac033",
+    "unit094"
+   ],
+   "v4_bhavik": [
+    "frac032",
+    "frac033",
+    "unit094"
+   ]
+  },
+  "ordinal mangled (1લા->એકલા, 4થું->ચારથું, 3જી->ત્રણ જી)": {
+   "v3": [
+    "ord037",
+    "ord038",
+    "ord039",
+    "ord040"
+   ],
+   "v4_pooja_cust": [
+    "ord037",
+    "ord039",
+    "ord040"
+   ],
+   "v4_bhavik": [
+    "ord037"
+   ]
+  },
+  "paise dropped (₹99.50 -> 99.5 rupees)": {
+   "v3": [
+    "money059"
+   ],
+   "v4_pooja_cust": [
+    "money059"
+   ],
+   "v4_bhavik": [
+    "money059"
+   ]
+  },
+  "% read as English 'percent'": {
+   "v3": [
+    "money066",
+    "money067",
+    "money068"
+   ],
+   "v4_pooja_cust": [
+    "money066",
+    "money067",
+    "money068",
+    "agent167"
+   ],
+   "v4_bhavik": [
+    "money066",
+    "money067",
+    "money068",
+    "agent167"
+   ]
+  },
+  "range 10-15 read as digits / without 'થી'": {
+   "v3": [
+    "range085",
+    "range086",
+    "agent170"
+   ],
+   "v4_pooja_cust": [
+    "range085",
+    "range086",
+    "agent170"
+   ],
+   "v4_bhavik": [
+    "range085",
+    "range086",
+    "agent170"
+   ]
+  }
+ },
+ "broken_on_all_3_voices": [
+  "abbr101",
+  "abbr102",
+  "agent166",
+  "agent170",
+  "agent171",
+  "agent172",
+  "agent173",
+  "date054",
+  "frac024",
+  "frac025",
+  "frac026",
+  "frac027",
+  "frac028",
+  "frac029",
+  "frac030",
+  "frac031",
+  "frac032",
+  "frac033",
+  "frac034",
+  "frac035",
+  "frac036",
+  "gudigit018",
+  "gudigit020",
+  "gudigit022",
+  "money059",
+  "money060",
+  "money061",
+  "money064",
+  "money066",
+  "money067",
+  "money068",
+  "money069",
+  "num000",
+  "num001",
+  "num002",
+  "num005",
+  "num009",
+  "num011",
+  "num014",
+  "num017",
+  "ord037",
+  "ord039",
+  "ord040",
+  "ord041",
+  "range085",
+  "range086",
+  "time044",
+  "time045",
+  "time046",
+  "time047",
+  "time048",
+  "time049",
+  "time052",
+  "unit088",
+  "unit094"
+ ],
+ "broken_on_any_voice": [
+  "abbr100",
+  "abbr101",
+  "abbr102",
+  "agent166",
+  "agent167",
+  "agent170",
+  "agent171",
+  "agent172",
+  "agent173",
+  "date054",
+  "frac024",
+  "frac025",
+  "frac026",
+  "frac027",
+  "frac028",
+  "frac029",
+  "frac030",
+  "frac031",
+  "frac032",
+  "frac033",
+  "frac034",
+  "frac035",
+  "frac036",
+  "gudigit018",
+  "gudigit020",
+  "gudigit022",
+  "gudigit023",
+  "id071",
+  "money059",
+  "money060",
+  "money061",
+  "money063",
+  "money064",
+  "money065",
+  "money066",
+  "money067",
+  "money068",
+  "money069",
+  "num000",
+  "num001",
+  "num002",
+  "num005",
+  "num009",
+  "num011",
+  "num014",
+  "num017",
+  "ord037",
+  "ord038",
+  "ord039",
+  "ord040",
+  "ord041",
+  "range085",
+  "range086",
+  "time044",
+  "time045",
+  "time046",
+  "time047",
+  "time048",
+  "time049",
+  "time052",
+  "unit088",
+  "unit092",
+  "unit094"
+ ],
+ "preprocessing": {
+  "sentences": 15,
+  "identical_transcript_on_vs_off": {
+   "v3": 11,
+   "v4": 11
+  },
+  "identical_number_reading_on_vs_off": {
+   "v3": 15,
+   "v4": 15
+  }
+ },
+ "spoken_form": {
+  "times_tested": 10,
+  "gu_wrong": [
+   "9:30",
+   "1:30",
+   "2:30",
+   "4:45",
+   "6:45",
+   "11:30",
+   "7:05"
+  ],
+  "hi_wrong": [
+   "4:45",
+   "6:45"
+  ],
+  "gu_identical_across_3_runs": 9,
+  "gu_invented_time_of_day": [
+   "3:15",
+   "10:00",
+   "7:05"
+  ]
+ },
+ "stt_wrong_script": {
+  "total": 1106,
+  "devanagari": 6,
+  "latin_only": 3,
+  "examples": [
+   [
+    "digital113",
+    "verbatim",
+    "लिंक एचटीटीपीएस कोलन स्लैश स्लैश जी यू जे ए आर ए टी डॉट जीओव"
+   ],
+   [
+    "digital113",
+    "transcribe",
+    "लिंक एचटीटीपीएस कोलन स्लैश स्लैश जी यू जे ए आर ए टी डॉट जीओव"
+   ],
+   [
+    "ortho126",
+    "transcribe",
+    "दिवाळी पर झळळता दिवा।"
+   ],
+   [
+    "ortho130",
+    "transcribe",
+    "कृष्ण द्वारका में रहता।"
+   ],
+   [
+    "ortho135",
+    "verbatim",
+    "पहलू काम पता हो।"
+   ],
+   [
+    "prosody162",
+    "verbatim",
+    "Na na na na na."
+   ],
+   [
+    "prosody163",
+    "verbatim",
+    "Ha."
+   ],
+   [
+    "ne156",
+    "verbatim",
+    "नरेंद्र मोदी स्टेडियम मोटेरामध्ये आहे."
+   ],
+   [
+    "prosody162",
+    "verbatim",
+    "Na na na na na."
+   ]
+  ]
+ },
+ "llm_agent": {
+  "replies": 12,
+  "with_clock_time_digits": 8,
+  "with_decimals": 6,
+  "with_rupee_symbol": 11,
+  "with_any_tts_breaking_format": 12,
+  "devanagari_or_hindi_words": 0
+ },
+ "llm_general": {
+  "asked": 16,
+  "answered": 8,
+  "errors_400": 8
+ }
+}
