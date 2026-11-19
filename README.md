@@ -13,6 +13,8 @@ The voices pronounce Gujarati **words** perfectly. `gujnorm` turns the written f
 | 8.5% | આઠ દશાંશ પાંચ પર્સેન્ટ | સાડા આઠ ટકા |
 | તા. 05/12/2026 | તા પાંચ ડિસેમ્બર… | તારીખ પાંચ ડિસેમ્બર બે હજાર છવ્વીસ |
 
+🔊 **[Listen to 10 before/after clips →](samples/README.md)** (Sarvam's v4 Gujarati agent voice)
+
 ## Results (Bulbul TTS → Saaras STT, 108 stress sentences that gujnorm changes)
 
 | Voice | Expected Gujarati spoken: before → after | English words in the speech: before → after |
@@ -57,4 +59,5 @@ Alphanumeric IDs (GJ01AB1234, IFSC) are left untouched on purpose.
 - `gujnorm/`: the normalizer (`numbers.py` holds the word tables, `rules.py` the passes, `sarvam.py` the SDK helpers)
 - `tests/`: unit tests (`pytest`)
 - `testset.py`: 177 Gujarati stress sentences · `sweep.py` / `eval_fix.py`: TTS→STT harness and before/after evaluation
+- `samples/`: before/after MP3s with a table of what was written, said and sent
 - `FINDINGS.md`: the bugs found in Sarvam's stack · `DESIGN.md`: how the fix works
