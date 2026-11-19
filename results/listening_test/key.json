@@ -1,0 +1,218 @@
+{
+ "t01": {
+  "fixed_is": 2,
+  "voice": "v4_pooja_cust",
+  "item": "date055",
+  "cat": "date"
+ },
+ "t02": {
+  "fixed_is": 2,
+  "voice": "v3",
+  "item": "frac024",
+  "cat": "frac"
+ },
+ "t03": {
+  "fixed_is": 2,
+  "voice": "v4_pooja_cust",
+  "item": "num016",
+  "cat": "num"
+ },
+ "t04": {
+  "fixed_is": 1,
+  "voice": "v3",
+  "item": "ord041",
+  "cat": "ord"
+ },
+ "t05": {
+  "fixed_is": 2,
+  "voice": "v4_bhavik",
+  "item": "num017",
+  "cat": "num"
+ },
+ "t06": {
+  "fixed_is": 2,
+  "voice": "v3",
+  "item": "abbr101",
+  "cat": "abbr"
+ },
+ "t07": {
+  "fixed_is": 2,
+  "voice": "v4_bhavik",
+  "item": "agent170",
+  "cat": "agent"
+ },
+ "t08": {
+  "fixed_is": 2,
+  "voice": "v4_pooja_cust",
+  "item": "frac034",
+  "cat": "frac"
+ },
+ "t09": {
+  "fixed_is": 1,
+  "voice": "v4_bhavik",
+  "item": "num013",
+  "cat": "num"
+ },
+ "t10": {
+  "fixed_is": 1,
+  "voice": "v4_bhavik",
+  "item": "num006",
+  "cat": "num"
+ },
+ "t11": {
+  "fixed_is": 1,
+  "voice": "v4_pooja_cust",
+  "item": "money062",
+  "cat": "money"
+ },
+ "t12": {
+  "fixed_is": 1,
+  "voice": "v4_bhavik",
+  "item": "time051",
+  "cat": "time"
+ },
+ "t13": {
+  "fixed_is": 1,
+  "voice": "v3",
+  "item": "ord043",
+  "cat": "ord"
+ },
+ "t14": {
+  "fixed_is": 1,
+  "voice": "v3",
+  "item": "num012",
+  "cat": "num"
+ },
+ "t15": {
+  "fixed_is": 1,
+  "voice": "v4_bhavik",
+  "item": "time045",
+  "cat": "time"
+ },
+ "t16": {
+  "fixed_is": 1,
+  "voice": "v3",
+  "item": "time044",
+  "cat": "time"
+ },
+ "t17": {
+  "fixed_is": 2,
+  "voice": "v3",
+  "item": "abbr103",
+  "cat": "abbr"
+ },
+ "t18": {
+  "fixed_is": 1,
+  "voice": "v3",
+  "item": "unit097",
+  "cat": "unit"
+ },
+ "t19": {
+  "fixed_is": 1,
+  "voice": "v3",
+  "item": "frac034",
+  "cat": "frac"
+ },
+ "t20": {
+  "fixed_is": 1,
+  "voice": "v4_pooja_cust",
+  "item": "unicode145",
+  "cat": "unicode"
+ },
+ "t21": {
+  "fixed_is": 1,
+  "voice": "v4_pooja_cust",
+  "item": "num008",
+  "cat": "num"
+ },
+ "t22": {
+  "fixed_is": 2,
+  "voice": "v4_pooja_cust",
+  "item": "range087",
+  "cat": "range"
+ },
+ "t23": {
+  "fixed_is": 1,
+  "voice": "v4_pooja_cust",
+  "item": "unit096",
+  "cat": "unit"
+ },
+ "t24": {
+  "fixed_is": 2,
+  "voice": "v3",
+  "item": "num008",
+  "cat": "num"
+ },
+ "t25": {
+  "fixed_is": 2,
+  "voice": "v4_bhavik",
+  "item": "agent171",
+  "cat": "agent"
+ },
+ "t26": {
+  "fixed_is": 1,
+  "voice": "v4_bhavik",
+  "item": "unit094",
+  "cat": "unit"
+ },
+ "t27": {
+  "fixed_is": 1,
+  "voice": "v4_bhavik",
+  "item": "money068",
+  "cat": "money"
+ },
+ "t28": {
+  "fixed_is": 2,
+  "voice": "v4_pooja_cust",
+  "item": "id074",
+  "cat": "id"
+ },
+ "t29": {
+  "fixed_is": 2,
+  "voice": "v3",
+  "item": "gudigit020",
+  "cat": "gudigit"
+ },
+ "t30": {
+  "fixed_is": 2,
+  "voice": "v4_bhavik",
+  "item": "money067",
+  "cat": "money"
+ },
+ "t31": {
+  "fixed_is": 2,
+  "voice": "v3",
+  "item": "ord037",
+  "cat": "ord"
+ },
+ "t32": {
+  "fixed_is": 1,
+  "voice": "v4_pooja_cust",
+  "item": "id072",
+  "cat": "id"
+ },
+ "t33": {
+  "fixed_is": 1,
+  "voice": "v4_pooja_cust",
+  "item": "id070",
+  "cat": "id"
+ },
+ "t34": {
+  "fixed_is": 1,
+  "voice": "v4_bhavik",
+  "item": "unit092",
+  "cat": "unit"
+ },
+ "t35": {
+  "fixed_is": 2,
+  "voice": "v4_bhavik",
+  "item": "id070",
+  "cat": "id"
+ },
+ "t36": {
+  "fixed_is": 1,
+  "voice": "v4_pooja_cust",
+  "item": "num002",
+  "cat": "num"
+ }
+}

@@ -1,6 +1,6 @@
 [project]
 name = "gujnorm"
-version = "0.1.0"
+version = "0.1.1"
 description = "Gujarati text normalizer for TTS: times, money, fractions, dates, ranges, ordinals, IDs"
 readme = "README.md"
 requires-python = ">=3.9"

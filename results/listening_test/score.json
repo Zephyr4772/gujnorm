@@ -1,0 +1,38 @@
+{
+ "ALL": {
+  "n": 36,
+  "fixed_correct": 26,
+  "raw_correct": 12,
+  "prefer_fixed": 22,
+  "prefer_raw": 10,
+  "same": 4,
+  "sign_test_p": 0.050102
+ },
+ "v4_pooja_cust": {
+  "n": 12,
+  "fixed_correct": 10,
+  "raw_correct": 3,
+  "prefer_fixed": 9,
+  "prefer_raw": 2,
+  "same": 1,
+  "sign_test_p": 0.06543
+ },
+ "v3": {
+  "n": 12,
+  "fixed_correct": 7,
+  "raw_correct": 5,
+  "prefer_fixed": 6,
+  "prefer_raw": 4,
+  "same": 2,
+  "sign_test_p": 0.753906
+ },
+ "v4_bhavik": {
+  "n": 12,
+  "fixed_correct": 9,
+  "raw_correct": 4,
+  "prefer_fixed": 7,
+  "prefer_raw": 4,
+  "same": 1,
+  "sign_test_p": 0.548828
+ }
+}

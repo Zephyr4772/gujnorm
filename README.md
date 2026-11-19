@@ -21,8 +21,13 @@ The voices pronounce Gujarati **words** perfectly. `gujnorm` turns the written f
 | bulbul:v4-flash `pooja_gu_customer` | 73 → **106 / 108** | 15 → 2 |
 | bulbul:v4-flash `bhavik_gu_conversation` | 71 → **107 / 108** | 11 → 1 |
 
-- Native-speaker check: before/after clips confirmed by ear (`out/listen/`).
-- 80 unit tests pass.
+- **Blind native-speaker A/B test** (36 pairs): where Sarvam misread the sentence, the listener judged Sarvam correct
+  0/20 and gujnorm 19/20, and preferred gujnorm 18 to 1 (sign test p = 0.00008). Where both clips had the same words,
+  there was no significant difference (p = 0.27).
+- On Sarvam's `tts-robustness-benchmark` (gu): it rewrites 35/81 sentences (Numerics 21/23) and leaves no stray digits.
+- 100 unit tests pass.
+- The audio numbers above were measured with v0.1.0. v0.1.1 adds the native-speaker spelling fixes (પિસ્તાલીસ…) and joined
+  postpositions (છવ્વીસમાં), and still needs an audio re-run.
 - About 0.13 ms per sentence, no dependencies, thread-safe, and it doesn't change already-normalized text.
 - The few remaining misses are on the voice side ("પોણો" heard as "પૂર્ણો"/"કોણ" on v4), not in the text cleanup.
 
@@ -42,7 +47,7 @@ audios = speak(client, llm_reply, model="bulbul:v4-flash", speaker="pooja_gu_cus
 ```
 
 ## What it covers
-Gujarati digits · Indian grouping (લાખ/કરોડ) · years (ઓગણીસો સુડતાળીસ) · dates (dd/mm/yyyy, ISO, "15 ઓગસ્ટ 1947") ·
+Gujarati digits · Indian grouping (લાખ/કરોડ) · years (ઓગણીસો સુડતાલીસ) · dates (dd/mm/yyyy, ISO, "15 ઓગસ્ટ 1947") ·
 clock times with સવા/સાડા/પોણા/દોઢ/અઢી, AM/PM → સવારે/બપોરે/સાંજે/રાત્રે, and વાગ્યે/વાગ્યાથી/વાગ્યા સુધી ·
 ₹ / Rs. / રૂ. / INR / /- / $ with paise · % → ટકા · ranges → થી · ordinals (પહેલો, બીજી, ચોથું, છઠ્ઠો, એકવીસમી) ·
 phone / OTP / PIN / policy numbers read digit by digit · units · + = · abbreviations (તા., નં., કિ.મી., ડૉ., ઇ.સ., તા.ક.).

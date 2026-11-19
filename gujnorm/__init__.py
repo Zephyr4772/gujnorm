@@ -4,7 +4,7 @@ from .rules import PASSES
 from .numbers import num_words, year_words, time_words, fraction_words
 
 __all__ = ["normalize", "num_words", "year_words", "time_words", "fraction_words"]
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 def normalize(text: str) -> str:

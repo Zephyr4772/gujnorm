@@ -16,7 +16,13 @@ _GU_DIGITS = str.maketrans("૦૧૨૩૪૫૬૭૮૯", "0123456789")
 
 
 def gujarati_digits(t):
-    return t.translate(_GU_DIGITS)
+    t = t.translate(_GU_DIGITS)
+    # "2026 માં" -> "2026માં": once spelled out, Gujarati writes the postposition joined to the number word
+    # ("છવ્વીસમાં", not "છવ્વીસ માં"); the gap made Bulbul pause. થી / એ / ને are left alone on purpose
+    # ("4 થી" vs ordinal "4થી"; "1947 એ" -> "…સુડતાલીસે" needs vowel sandhi).
+    num = r"(?<![A-Za-z\d])(\d[\d,.:/\-]*)"          # a plain number, not the tail of an ID like V4
+    t = re.sub(rf"{num}\s+(માં|ના|નાં|નો|ની|નું|નુ){END}", r"\1\2", t)
+    return re.sub(rf"{num}\s+થી(?=\s*\d)", r"\1થી", t)   # "10 થી 15" -> "10થી 15" (range, not ordinal)
 
 
 # ---------------- 2. abbreviations ----------------

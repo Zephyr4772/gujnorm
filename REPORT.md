@@ -24,7 +24,7 @@ way on every run: 9:30 → સવા દસ (10:15), 1:30 → સવા એક (
 replies. Through Bulbul v4, the branch hours came out as "નવ વાગ્યે ત્રીસ મિનિટ વાગ્યે".
 
 ## The fix: `gujnorm`
-A deterministic text-to-text step before TTS (pure Python, ~0.13 ms per sentence, 96 unit tests). It handles times
+A deterministic text-to-text step before TTS (pure Python, ~0.13 ms per sentence, 100 unit tests). It handles times
 (સવા/સાડા/પોણા/દોઢ/અઢી, AM/PM → સવારે/સાંજે), money with paise, લાખ/કરોડ/Cr, %, ranges, ordinals, dates in Indian and
 English order, years, phone/OTP/account numbers digit by digit, SI units, and Gujarati abbreviations. Alphanumeric IDs and
 chemical formulas are left untouched.
@@ -42,7 +42,17 @@ chemical formulas are left untouched.
 STEM 11/22, Code-mixed 3/7), leaves names, URLs and romanized text alone, and leaves no stray digits.
 The audio CER before/after is pending: my free credits ran out.
 
-**Blind native-speaker listening test** (36 pairs across 3 voices, order hidden): [RESULT PENDING].
+**Blind native-speaker listening test** (36 random pairs across 3 voices, clip order hidden, key kept out of the page):
+
+| Pairs | Judged correct: Sarvam → gujnorm | Preferred gujnorm / Sarvam / same | Sign test |
+|---|---|---|---|
+| Sarvam misread the sentence (20) | **0 → 19** | **18 / 1 / 1** | p = 0.00008 |
+| Both clips have the same words (16) | 12 → 7 | 4 / 9 / 3 | p = 0.27 (no real difference) |
+| All 36 | 12 → 26 | 22 / 10 / 4 | p = 0.05 |
+
+The listener preferred the second clip more often, and gujnorm's clip was usually first, so position bias worked against it.
+On the identical-word pairs, two of gujnorm's "wrong" marks traced back to spelling (પિસ્તાળીસ/બેતાળીસ). gujnorm now uses
+the spoken લ forms (પિસ્તાલીસ…) and joins postpositions (છવ્વીસમાં). This is v0.1.1. Its audio needs re-measuring once credits are available.
 
 ## Also observed
 - Saaras with `language_code=gu-IN` sometimes returned Marathi or Devanagari text, or Latin script for short words, for Gujarati audio.

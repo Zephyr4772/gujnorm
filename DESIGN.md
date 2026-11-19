@@ -15,7 +15,7 @@ It is built as ordered regex passes. Each pass outputs words only, with no digit
 |---|---|---|
 | 1 | Gujarati digits → ASCII | ૯:૩૦ → 9:30 |
 | 2 | Abbreviations | તા. → તારીખ, નં. → નંબર, કિ.મી. → કિલોમીટર, ઇ.સ. → ઈસવીસન |
-| 3 | Dates | 05/12/2026 → પાંચ ડિસેમ્બર બે હજાર છવ્વીસ; 15 ઓગસ્ટ 1947 → … ઓગણીસો સુડતાળીસ |
+| 3 | Dates | 05/12/2026 → પાંચ ડિસેમ્બર બે હજાર છવ્વીસ; 15 ઓગસ્ટ 1947 → … ઓગણીસો સુડતાલીસ |
 | 4 | Times | 9:30 → સાડા નવ, 1:30 → દોઢ, 4:45 → પોણા પાંચ, 6 PM → સાંજે છ વાગ્યે; adds વાગ્યે / વાગ્યાથી / વાગ્યા સુધી |
 | 5 | Phone / OTP / IDs | 9876543210 → નવ આઠ સાત … (digit by digit) |
 | 6 | Money | ₹1.5 લાખની → દોઢ લાખ રૂપિયાની; ₹99.50 → નવ્વાણું રૂપિયા પચાસ પૈસા |
@@ -39,4 +39,4 @@ Next: the Gujarati split of Sarvam's `tts-robustness-benchmark`.
 ## Known limits
 - Alphanumeric IDs (PAN, vehicle numbers) are left alone. Bulbul reads them letter by letter in English, which is how people say them.
 - `d/m/yyyy` is assumed to be the Indian day/month order.
-- The number-word spellings need a native speaker's check (e.g. સુડતાળીસ vs સુડતાલીસ).
+- Number-word spellings follow how they are spoken, as checked by a native speaker: 41–48 use લ (પિસ્તાલીસ), not the dictionary ળ.

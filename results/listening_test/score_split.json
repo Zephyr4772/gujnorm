@@ -1,0 +1,20 @@
+{
+ "differ": {
+  "n": 20,
+  "raw_correct": 0,
+  "fixed_correct": 19,
+  "prefer_fixed": 18,
+  "prefer_raw": 1,
+  "same": 1,
+  "p": 8e-05
+ },
+ "same": {
+  "n": 16,
+  "raw_correct": 12,
+  "fixed_correct": 7,
+  "prefer_fixed": 4,
+  "prefer_raw": 9,
+  "same": 3,
+  "p": 0.26685
+ }
+}

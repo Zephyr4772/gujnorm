@@ -1,0 +1,229 @@
+{
+ "v3": {
+  "items_changed": 108,
+  "raw_pass": 68,
+  "fixed_pass": 108,
+  "raw_en_leak": 15,
+  "fixed_en_leak": 2,
+  "fixed_regressions": [],
+  "by_category": {
+   "abbr": {
+    "n": 5,
+    "raw_pass": 2,
+    "fixed_pass": 5
+   },
+   "agent": {
+    "n": 9,
+    "raw_pass": 6,
+    "fixed_pass": 9
+   },
+   "date": {
+    "n": 6,
+    "raw_pass": 5,
+    "fixed_pass": 6
+   },
+   "frac": {
+    "n": 13,
+    "raw_pass": 4,
+    "fixed_pass": 13
+   },
+   "gudigit": {
+    "n": 6,
+    "raw_pass": 3,
+    "fixed_pass": 6
+   },
+   "id": {
+    "n": 10,
+    "raw_pass": 10,
+    "fixed_pass": 10
+   },
+   "money": {
+    "n": 11,
+    "raw_pass": 5,
+    "fixed_pass": 11
+   },
+   "num": {
+    "n": 18,
+    "raw_pass": 15,
+    "fixed_pass": 18
+   },
+   "ord": {
+    "n": 7,
+    "raw_pass": 3,
+    "fixed_pass": 7
+   },
+   "range": {
+    "n": 3,
+    "raw_pass": 2,
+    "fixed_pass": 3
+   },
+   "time": {
+    "n": 9,
+    "raw_pass": 4,
+    "fixed_pass": 9
+   },
+   "unicode": {
+    "n": 1,
+    "raw_pass": 1,
+    "fixed_pass": 1
+   },
+   "unit": {
+    "n": 10,
+    "raw_pass": 8,
+    "fixed_pass": 10
+   }
+  }
+ },
+ "v4_pooja_cust": {
+  "items_changed": 108,
+  "raw_pass": 73,
+  "fixed_pass": 106,
+  "raw_en_leak": 15,
+  "fixed_en_leak": 2,
+  "fixed_regressions": [
+   "agent168"
+  ],
+  "by_category": {
+   "abbr": {
+    "n": 5,
+    "raw_pass": 3,
+    "fixed_pass": 5
+   },
+   "agent": {
+    "n": 9,
+    "raw_pass": 6,
+    "fixed_pass": 8
+   },
+   "date": {
+    "n": 6,
+    "raw_pass": 5,
+    "fixed_pass": 6
+   },
+   "frac": {
+    "n": 13,
+    "raw_pass": 4,
+    "fixed_pass": 12
+   },
+   "gudigit": {
+    "n": 6,
+    "raw_pass": 4,
+    "fixed_pass": 6
+   },
+   "id": {
+    "n": 10,
+    "raw_pass": 10,
+    "fixed_pass": 10
+   },
+   "money": {
+    "n": 11,
+    "raw_pass": 6,
+    "fixed_pass": 11
+   },
+   "num": {
+    "n": 18,
+    "raw_pass": 15,
+    "fixed_pass": 18
+   },
+   "ord": {
+    "n": 7,
+    "raw_pass": 4,
+    "fixed_pass": 7
+   },
+   "range": {
+    "n": 3,
+    "raw_pass": 2,
+    "fixed_pass": 3
+   },
+   "time": {
+    "n": 9,
+    "raw_pass": 4,
+    "fixed_pass": 9
+   },
+   "unicode": {
+    "n": 1,
+    "raw_pass": 1,
+    "fixed_pass": 1
+   },
+   "unit": {
+    "n": 10,
+    "raw_pass": 9,
+    "fixed_pass": 10
+   }
+  }
+ },
+ "v4_bhavik": {
+  "items_changed": 108,
+  "raw_pass": 71,
+  "fixed_pass": 107,
+  "raw_en_leak": 11,
+  "fixed_en_leak": 1,
+  "fixed_regressions": [],
+  "by_category": {
+   "abbr": {
+    "n": 5,
+    "raw_pass": 3,
+    "fixed_pass": 5
+   },
+   "agent": {
+    "n": 9,
+    "raw_pass": 6,
+    "fixed_pass": 9
+   },
+   "date": {
+    "n": 6,
+    "raw_pass": 5,
+    "fixed_pass": 6
+   },
+   "frac": {
+    "n": 13,
+    "raw_pass": 4,
+    "fixed_pass": 12
+   },
+   "gudigit": {
+    "n": 6,
+    "raw_pass": 4,
+    "fixed_pass": 6
+   },
+   "id": {
+    "n": 10,
+    "raw_pass": 9,
+    "fixed_pass": 10
+   },
+   "money": {
+    "n": 11,
+    "raw_pass": 6,
+    "fixed_pass": 11
+   },
+   "num": {
+    "n": 18,
+    "raw_pass": 15,
+    "fixed_pass": 18
+   },
+   "ord": {
+    "n": 7,
+    "raw_pass": 4,
+    "fixed_pass": 7
+   },
+   "range": {
+    "n": 3,
+    "raw_pass": 2,
+    "fixed_pass": 3
+   },
+   "time": {
+    "n": 9,
+    "raw_pass": 4,
+    "fixed_pass": 9
+   },
+   "unicode": {
+    "n": 1,
+    "raw_pass": 1,
+    "fixed_pass": 1
+   },
+   "unit": {
+    "n": 10,
+    "raw_pass": 8,
+    "fixed_pass": 10
+   }
+  }
+ }
+}

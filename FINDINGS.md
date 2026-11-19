@@ -74,6 +74,13 @@ Scoring note: Saaras `verbatim` sometimes writes numbers back as digits. The dig
 the same way for both raw and fixed audio before checking, so the score checks the number's value either way.
 `pooja_gu_conversational` couldn't be scored because the account ran out of credits (HTTP 402).
 
+### Blind native-speaker listening test (19 Nov 2026)
+36 random before/after pairs (12 per voice), with clip order hidden. Sarvam misread 20 of the pairs: Sarvam was judged correct 0/20,
+gujnorm 19/20, and gujnorm was preferred 18 to 1 (p = 0.00008). The 16 pairs with identical words showed no significant difference (p = 0.27).
+Listener feedback that went back into gujnorm v0.1.1: use the spoken લ forms for 41–48 (પિસ્તાલીસ, not પિસ્તાળીસ), and join
+postpositions to the number word (છવ્વીસમાં). The test sentence "5મો દિવસ રજા છે" was unnatural and is now "5મા દિવસે રજા છે".
+The listener didn't recognise "તા.ક. → તાજા કલમ" (an old letter-writing "P.S."), so it is not counted as a finding.
+
 ## Original fix plan
 An open-source **Gujarati text normalizer** to run before TTS:
 - times using સવા / સાડા / પોણા / દોઢ / અઢી
