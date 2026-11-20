@@ -15,6 +15,13 @@ The voices pronounce Gujarati **words** perfectly. `gujnorm` turns the written f
 
 🔊 **[Listen to 10 before/after clips →](samples/README.md)** (Sarvam's v4 Gujarati agent voice)
 
+🤗 **[Try it in your browser](https://huggingface.co/spaces/sinhal/gujnorm)** ·
+**[Dataset: Gujarati TTS number reading](https://huggingface.co/datasets/sinhal/gujarati-tts-number-reading)**
+(177 sentences, all results, listening test) ·
+**[Dataset: IndicTrans2 number fidelity](https://huggingface.co/datasets/sinhal/indictrans2-number-fidelity)**
+(related: Indian amounts split by IndicTrans2's pre-processing, fix in
+[VarunGumma/IndicTransToolkit#32](https://github.com/VarunGumma/IndicTransToolkit/pull/32))
+
 ## Results (Bulbul TTS → Saaras STT, 108 stress sentences that gujnorm changes)
 
 | Voice | Sentences misread: before → after (of 108) |
